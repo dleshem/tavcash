@@ -1,4 +1,5 @@
 import axios from 'axios';
+import querystring from 'query-string';
 
 export default class TavcashClient {
     constructor({baseUrl = 'https://www1.shufersal.co.il/tavcash/api/GlobalWebApi/', timeout = 0} = {}) {
@@ -10,7 +11,10 @@ export default class TavcashClient {
 
     async getCustomerDetails({customerId}) {
         try {
-            const response = await this._client.get(`GetCustomerDetails?CustomerID=${customerId}`);
+            const params = {
+                CustomerID: customerId
+            };
+            const response = await this._client.get(`GetCustomerDetails?${querystring.stringify(params)}`);
             return response.data;
         } catch (e) {
             if (e.code === 'ECONNABORTED') {
@@ -23,7 +27,11 @@ export default class TavcashClient {
 
     async getCustomerDetailsAndDeals({customerId, dealId = -1}) {
         try {
-            const response = await this._client.get(`GetCustomerDetailsAndDeals?CustomerID=${customerId}&DealID=${dealId}`);
+            const params = {
+                CustomerID: customerId,
+                DealID: dealId
+            };
+            const response = await this._client.get(`GetCustomerDetailsAndDeals?${querystring.stringify(params)}`);
             return response.data;
         } catch (e) {
             if (e.code === 'ECONNABORTED') {
