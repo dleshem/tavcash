@@ -1,6 +1,6 @@
 {
   "name": "tavcash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JavaScript client for Shufersal's Tav Zahav Cash API",
   "main": "dist/index.js",
   "scripts": {
