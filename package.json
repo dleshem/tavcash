@@ -34,7 +34,7 @@
     "babel-register": "^6.18.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "query-string": "^3.0.0"
   },
   "directories": {
